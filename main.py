@@ -31,11 +31,11 @@ def serialize_animal(animals_data):
     for animal in animals_data:
         try:
             output += '<li class="cards__item">'
-            output += f'<div class="card__title">{animal.get("name")}</div>'
+            output += f'<div class="card__title">{animal["name"]}</div>'
             output += '<p class="card__text">'
-            output += f'<strong>Diet:</strong> {animal.get("characteristics", {}).get("diet")}<br/>\n'
-            output += f'<strong>Location:</strong> {animal.get("locations")[0]}<br/>\n'
-            output += f'<strong>Type:</strong> {animal.get("characteristics").get("type")}<br/>\n'
+            output += f'<strong>Diet:</strong> {animal["characteristics"]["diet"]}<br/>\n'
+            output += f'<strong>Location:</strong> {animal["locations"][0]}<br/>\n'
+            output += f'<strong>Type:</strong> {animal["characteristics"]["type"]}<br/>\n'
             output += "</p>\n"
             output += "</li>\n"
 
