@@ -1,7 +1,12 @@
 import requests
 import animals_web_generator
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 WEB_URL = "https://api.api-ninjas.com/v1/animals?name="
+API_KEY = os.getenv("API_KEY")
 
 def fetch_data(animal_name):
   """
