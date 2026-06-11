@@ -15,13 +15,13 @@ def write_new_html(html_string):
     with open("animals.html", "w") as website:
         website.write(html_string)
 
+    return True
 
 def load_data(animal):
     """Loads data via API"""
     url = WEB_URL + animal
     response = requests.get(url, headers={"X-API-Key": "ZTT5l5Oxc2AGbxCm04MuiBS6zIjFpATPhkncljVe"})
     data = response.json()
-    print(data)
     return data
 
 
@@ -47,10 +47,13 @@ def serialize_animal(animals_data):
 
 def main():
     """manages the functionality of the web generator"""
-    animals_data = load_data("fox")
+    user_animal_selection = input("Enter a name of an animal: ")
+    animals_data = load_data(user_animal_selection)
     animal_data_string = serialize_animal(animals_data)
     html_code = load_html_template(animal_data_string)
-    write_new_html(html_code)
+    write_website_success = write_new_html(html_code)
+    if write_website_success:
+        print("Website was successfully generated to the file animals.html.")
 
 
 if "__main__" == __name__:
