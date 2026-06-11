@@ -1,7 +1,5 @@
 import sys
 
-WEB_URL = "https://api.api-ninjas.com/v1/animals?name="
-
 
 def load_html_template(html_string):
     """loads the HTML template code from a file and replaces the placeholder with the actual HTML code"""

@@ -6,10 +6,10 @@ import animals_web_generator
 def main():
     """manages the functionality of the web generator and gets the animal selection from the user"""
     user_animal_selection = input("Enter a name of an animal: ")
-    animals_data = data_fetcher.(user_animal_selection)
-    animal_data_string = animals_web_generator.(animals_data)
-    html_code = animals_web_generator.(animal_data_string)
-    write_website_success = animals_web_generator.(html_code)
+    animals_data = data_fetcher.fetch_data(user_animal_selection)
+    animal_data_string = animals_web_generator.serialize_animal(animals_data)
+    html_code = animals_web_generator.load_html_template(animal_data_string)
+    write_website_success = animals_web_generator.write_new_html(html_code)
     if write_website_success:
         print("Website was successfully generated to the file animals.html.")
 

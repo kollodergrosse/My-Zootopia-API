@@ -1,6 +1,7 @@
 import requests
 import animals_web_generator
 
+WEB_URL = "https://api.api-ninjas.com/v1/animals?name="
 
 def fetch_data(animal_name):
   """
@@ -19,11 +20,11 @@ def fetch_data(animal_name):
     }
   },
   """
-  url = main.WEB_URL + animal_name
+  url = WEB_URL + animal_name
   response = requests.get(url, headers={"X-API-Key": "ZTT5l5Oxc2AGbxCm04MuiBS6zIjFpATPhkncljVe"})
   data = response.json()
   if data == []:
-      main.write_error_html_message(animal_name)
+      animals_web_generator.write_error_html_message(animal_name)
 
   else:
       return data
