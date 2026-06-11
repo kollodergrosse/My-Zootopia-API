@@ -1,6 +1,6 @@
 import requests
-import animals_web_generator
 import os
+import animals_web_generator
 from dotenv import load_dotenv
 
 load_dotenv()
