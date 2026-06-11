@@ -21,7 +21,7 @@ def fetch_data(animal_name):
   },
   """
   url = WEB_URL + animal_name
-  response = requests.get(url, headers={"X-API-Key": "ZTT5l5Oxc2AGbxCm04MuiBS6zIjFpATPhkncljVe"})
+  response = requests.get(url, headers={"X-API-Key": API_KEY})
   data = response.json()
   if data == []:
       animals_web_generator.write_error_html_message(animal_name)
