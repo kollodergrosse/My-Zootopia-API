@@ -1,4 +1,5 @@
 import requests
+import sys
 WEB_URL = "https://api.api-ninjas.com/v1/animals?name="
 
 
@@ -14,15 +15,21 @@ def write_new_html(html_string):
     """writes the HTML code to a new file"""
     with open("animals.html", "w") as website:
         website.write(html_string)
+        sys.exit()
 
-    return True
 
 def load_data(animal):
     """Loads data via API"""
+
     url = WEB_URL + animal
     response = requests.get(url, headers={"X-API-Key": "ZTT5l5Oxc2AGbxCm04MuiBS6zIjFpATPhkncljVe"})
     data = response.json()
-    return data
+    if data == []:
+        error_html_message = f'<h2>The animal "{animal}" is not existing.</h2>'
+        write_new_html(error_html_message)
+
+    else:
+        return data
 
 
 def serialize_animal(animals_data):
@@ -46,7 +53,7 @@ def serialize_animal(animals_data):
 
 
 def main():
-    """manages the functionality of the web generator"""
+    """manages the functionality of the web generator and gets the animal selection from the user"""
     user_animal_selection = input("Enter a name of an animal: ")
     animals_data = load_data(user_animal_selection)
     animal_data_string = serialize_animal(animals_data)
