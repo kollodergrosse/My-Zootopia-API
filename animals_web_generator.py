@@ -32,7 +32,7 @@ def serialize_animal(animals_data):
                 <div class="card__title">{animal['name']}</div>
                 <p class="card__text">
                     <strong>Diet:</strong> {animal['characteristics']['diet']}<br/>
-                    <strong>Location:</strong> {animal['locations'][0]}<br/>
+                    <strong>Location:</strong> {animal.get('locations', None)}<br/>
                     <strong>Type:</strong> {animal['characteristics']['type']}<br/>
                 </p>
             </li>
